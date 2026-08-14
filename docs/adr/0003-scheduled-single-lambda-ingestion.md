@@ -159,6 +159,18 @@ real feed list exists (M2), not before.
 retries) and nothing recovers it beyond the next cycle picking up whatever is
 still in the feed window. For news links, this is invisible.
 
+**Correction, M1 — the watermark does not hold for ranked feeds.** The
+`lastSeenPublishedAt` watermark specified above assumes a feed is ordered by
+publish time, so that anything older has already been seen. Hacker News' front
+page, the M1 feed, is ranked rather than chronological: `pubDate` is submission
+time, and a story frequently climbs onto the page hours after it was submitted.
+Skipping on publish time therefore drops exactly the stories we want, and does so
+permanently and silently. M1 ships without the skip and relies on the conditional
+put (`attribute_not_exists(pk)`) alone for dedup, which is correct by
+construction; the cost is the wasted conditional writes this bullet was meant to
+avoid, which is cents per month. A per-feed "is this feed chronological" flag is
+the obvious way to bring the watermark back once the M2 feed list exists.
+
 **Revisit when:** the feed list exceeds ~100 sources, or a cycle's p95 duration
 exceeds ~30s (half the timeout) — at which point move to option B (SQS fan-out),
 which the service layer is already shaped for. Also revisit the cadence if a feed

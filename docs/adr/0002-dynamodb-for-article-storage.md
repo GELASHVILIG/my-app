@@ -3,6 +3,11 @@
 Status: accepted
 Date: 2026-08-14
 
+> **Note:** the `byPublishedAt` GSI projection stated below (`title, url, source,
+> publishedAt`) is corrected to also include `id` — see
+> [ADR 0006](0006-articles-gsi-projects-id.md). This note is the only edit made to
+> this otherwise-accepted record.
+
 ## Context
 
 The aggregator needs to store deduplicated articles and answer exactly one query

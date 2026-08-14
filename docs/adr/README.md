@@ -43,3 +43,4 @@ three months. Not for library picks or anything reversible in an afternoon.
 | [0003](0003-scheduled-single-lambda-ingestion.md) | Scheduled single-Lambda feed ingestion | accepted |
 | [0004](0004-server-rendered-html-no-framework.md) | Server-rendered HTML, no framework, no client JS | accepted |
 | [0005](0005-first-party-cookieless-visit-tracking.md) | First-party cookieless visit tracking | accepted |
+| [0006](0006-articles-gsi-projects-id.md) | `byPublishedAt` GSI projects `id` in addition to ADR 0002's listed attributes | accepted |

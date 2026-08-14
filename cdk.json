@@ -1,0 +1,12 @@
+{
+  "app": "npx tsx infra/bin/app.ts",
+  "output": "cdk.out",
+  "context": {
+    "env": "dev",
+    "@aws-cdk/core:defaultCrossStackReferences": "strong"
+  },
+  "watch": {
+    "include": ["infra/**", "src/**"],
+    "exclude": ["**/*.test.ts", "cdk.out", "node_modules", "dist", "coverage"]
+  }
+}
