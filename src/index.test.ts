@@ -3,6 +3,8 @@ import { main } from './index.js';
 
 describe('main', () => {
   it('runs', () => {
-    expect(() => main()).not.toThrow();
+    expect(() => {
+      main();
+    }).not.toThrow();
   });
 });

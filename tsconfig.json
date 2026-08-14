@@ -15,5 +15,5 @@
     "outDir": "dist",
     "rootDir": "."
   },
-  "include": ["src", "infra", "tests"]
+  "include": ["src", "infra", "tests", "*.config.ts"]
 }
